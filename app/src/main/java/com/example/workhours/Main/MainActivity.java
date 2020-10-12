@@ -1,25 +1,18 @@
-package com.example.workhours;
+package com.example.workhours.Main;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.workhours.Adapter.FragmentPagerAdapter;
 import com.example.workhours.Fragments.April;
 import com.example.workhours.Fragments.August;
 import com.example.workhours.Fragments.December;
@@ -32,15 +25,11 @@ import com.example.workhours.Fragments.May;
 import com.example.workhours.Fragments.November;
 import com.example.workhours.Fragments.October;
 import com.example.workhours.Fragments.September;
-import com.example.workhours.Recycler.VerticalRecyclerAdapter;
-import com.example.workhours.Recycler.VerticalRecyclerModel;
+import com.example.workhours.R;
 import com.google.android.material.tabs.TabLayout;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 

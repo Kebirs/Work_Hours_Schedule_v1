@@ -1,6 +1,5 @@
 package com.example.workhours.Fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.workhours.MainActivity;
 import com.example.workhours.R;
 import com.example.workhours.Recycler.VerticalRecyclerAdapter;
 import com.example.workhours.Recycler.VerticalRecyclerModel;

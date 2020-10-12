@@ -1,6 +1,4 @@
-package com.example.workhours;
-
-import android.util.Log;
+package com.example.workhours.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
