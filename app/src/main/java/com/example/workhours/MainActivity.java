@@ -20,6 +20,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.workhours.Fragments.April;
+import com.example.workhours.Fragments.August;
+import com.example.workhours.Fragments.December;
+import com.example.workhours.Fragments.February;
+import com.example.workhours.Fragments.January;
+import com.example.workhours.Fragments.July;
+import com.example.workhours.Fragments.June;
+import com.example.workhours.Fragments.March;
+import com.example.workhours.Fragments.May;
+import com.example.workhours.Fragments.November;
+import com.example.workhours.Fragments.October;
+import com.example.workhours.Fragments.September;
 import com.example.workhours.Recycler.VerticalRecyclerAdapter;
 import com.example.workhours.Recycler.VerticalRecyclerModel;
 import com.google.android.material.tabs.TabLayout;
@@ -65,9 +77,20 @@ public class MainActivity extends AppCompatActivity {
     private void add_pages(ViewPager pager) {
         FragmentPagerAdapter adapter = new FragmentPagerAdapter(getSupportFragmentManager(), 1);
 
-        for (int s = 0; s < 12; s++) {
-            adapter.add_page(new MonthFragment());
-        }
+            adapter.add_page(new January());
+            adapter.add_page(new February());
+            adapter.add_page(new March());
+            adapter.add_page(new April());
+            adapter.add_page(new May());
+            adapter.add_page(new June());
+            adapter.add_page(new July());
+            adapter.add_page(new August());
+            adapter.add_page(new September());
+            adapter.add_page(new October());
+            adapter.add_page(new November());
+            adapter.add_page(new December());
+
+
         pager.setAdapter(adapter);
     }
 
@@ -90,53 +113,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
-    }
-
-    public static class MonthFragment extends Fragment {
-
-        ArrayList<VerticalRecyclerModel> vertical_layout_models;
-
-        @Nullable
-        @Override
-        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-            View view = inflater.inflate(R.layout.day_vertical_item, container, false);
-
-            RecyclerView recycler_view = view.findViewById(R.id.vertical_view);
-            recycler_view.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-            recycler_view.setAdapter(new VerticalRecyclerAdapter(this.getActivity(), getAllDays()));
-
-            return view;
-        }
-
-        private ArrayList<VerticalRecyclerModel> getAllDays() {
-
-            int actual_year = Calendar.getInstance().get(Calendar.YEAR);
-            int actual_month = Calendar.getInstance().get(Calendar.MONTH);
-
-
-            Calendar c = new GregorianCalendar(actual_year, actual_month, 1);
-
-            SimpleDateFormat m_format = new SimpleDateFormat(" d  EEEE --- MMM", Locale.getDefault());
-
-            int max_month_days = c.getActualMaximum(Calendar.DAY_OF_MONTH);
-
-            ArrayList<String> all_days = new ArrayList<>();
-
-            for (int i = 0; i < max_month_days; i++) {
-                all_days.add(m_format.format(c.getTime()));
-                c.add(Calendar.DAY_OF_MONTH, 1);
-            }
-            /* Add item item name as string to a vertical model position*/
-
-            vertical_layout_models = new ArrayList<>();
-
-            for (int i = 0; i < max_month_days; i++) {
-                VerticalRecyclerModel v_model = new VerticalRecyclerModel(all_days.get(i));
-                vertical_layout_models.add(v_model);
-            }
-            return vertical_layout_models;
-        }
     }
 
     @Override
